@@ -32,3 +32,27 @@ A4-Seite anzusetzen. Nutzen Sie zum Verfassen der Beschreibung eine Software Ihr
 Speichern Sie Ihr Arbeitsergebnis in der Datei 20190318-pds-aufgabe-1p-hermann.pdf.
 Senden Sie Ihren Quelltext und Ihre Beschreibung bis Mo., den 18.03.2019 um 20:00 Uhr an
 christian.koot@hs-aalen.de.
+
+
+
+IDEE:
+
+REFRENZEINHEIT IN DIE STANDARD MÄ?IG UMGERECHNET WIRD
+
+FLOAT LIEFERT 15-16 NACHKOMMASTELLEN (m als referenzeinheit und dann von der in die zieleinheit umrechnen)
+
+von m in die zielheinheit!
+
+wichtig: außnhamenbehndlung ob es die parameter überhaupt gibt.
+rechnet das ding richtig! vorgaben gehalten.
+
+doku: grundlegende gedanken, wie funkti die ausnahmenbehandlung, was macht mein ansatz überlegen ggü anderen, nur fuktion nötig! macht alles an der kommandozeile,
+
+- DICTIONARY ALS VERZECHNIS FÜR UMRECHNUNGSFAKTOR (zwei keys zum value)
+- ENUM als größer kleiner
+
+andere Idee:
+immer in eine maßeinheit zu rechnen und dann mit der weiter konvertieren
+
+andere idee
+mit zehner potenzen arbeiten
