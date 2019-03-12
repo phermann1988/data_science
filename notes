@@ -1,0 +1,34 @@
+Aufgabenstellung 1P (Konverter Längeneinheiten)
+
+Verfassen Sie in Python die Funktion
+def conv_length (value_in, unit_in, unit_out):
+
+Diese soll den in value_in spezifizierten Eingangswert (int oder float), welcher eine Län-
+genangabe in der in unit_in (str) spezifizierten Einheit enthält, in die in unit_out (str)
+
+spezifizierte Längeneinheit umrechnen und als Funktionswert (float) zurückgeben.
+Die folgenden Werte für unit_in und unit_out sollen unterstützt werden:
+nm Nanometer (nm) km Kilometer (km)
+mum Mikrometer (m) in inch (in)
+mm Millimeter (mm) ft foot (ft)
+cm Zentimeter (cm) yd yard (yd)
+dm Dezimeter (dm) mi mile (mi)
+m Meter (m)
+
+Entnehmen Sie die Umrechnungen aus der deutschsprachigen Wikipedia. Legen Sie bei der
+Berechnung der Werte für das angloamerikanische Maßsystem die seit 1. Juli 1959 gültigen
+Definitionen zugrunde.
+
+Erläutern Sie Ihren Quelltext mittels eingebetteter Kommentarzeilen. Führen Sie eine geeig-
+nete Ausnahmebehandlung für die Eingangswerte durch.
+
+Speichern Sie Ihr Arbeitsergebnis in der Datei 20190318-pds-aufgabe-1p-hermann.py.
+
+Verfassen Sie eine Beschreibung Ihrer Funktion, welche die Implementierung erläutert (ein-
+schließlich der Ausnahmebehandlung). Als Richtwert für die Beschreibung ist ca. eine DIN-
+A4-Seite anzusetzen. Nutzen Sie zum Verfassen der Beschreibung eine Software Ihrer Wahl
+
+(bspw. Microsoft Office, Libre Office, LaTeX).
+Speichern Sie Ihr Arbeitsergebnis in der Datei 20190318-pds-aufgabe-1p-hermann.pdf.
+Senden Sie Ihren Quelltext und Ihre Beschreibung bis Mo., den 18.03.2019 um 20:00 Uhr an
+christian.koot@hs-aalen.de.
