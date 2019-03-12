@@ -57,3 +57,12 @@ immer in eine maßeinheit zu rechnen und dann mit der weiter konvertieren
 
 andere idee
 mit zehner potenzen arbeiten
+
+
+# hier wird ueberprueft ob die eingangswerte existieren oder nicht
+if unit_in not in umrechnungsfaktoren_metrisch.keys() and unit_in not in umrechnungsfaktoren_andere:
+    print ("eingangswert ist nicht vorhanden! -> programm beendet")
+    exit()
+elif unit_out not in umrechnungsfaktoren_metrisch.keys() and unit_out not in umrechnungsfaktoren_andere:
+    print ("ausgangswert ist nicht vorhanden! -> programm beendet")
+    exit()
