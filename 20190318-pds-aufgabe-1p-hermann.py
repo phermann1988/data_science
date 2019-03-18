@@ -103,5 +103,5 @@ def conv_length(value_in, unit_in, unit_out):
 
     print("converted:", value_in, unit_in, "to", result, unit_out)
 
-    # Rueckgabe wert der funktion
+    # Rueckgabewert der funktion
     return (result)
