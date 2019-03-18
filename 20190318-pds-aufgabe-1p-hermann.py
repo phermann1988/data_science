@@ -1,27 +1,27 @@
 #!/usr/bin/python3
 
-def conv_length (value_in, unit_in, unit_out):
+def conv_length(value_in, unit_in, unit_out):
 
-    #dict for conversion factors of the metric measurement system
-    conversion_factors_metric = {
+    # dict for conversion factors of the metric measurement system
+    conv_facts_m = {
         "mum": 1000000,
         "mm": 1000,
         "cm": 100,
         "dm": 10,
-        "m" : 1,
-        "km" : 1/1000,
+        "m": 1,
+        "km": 1/1000,
     }
-    #dict for conversion factors of the US customary measurement system
-    conversion_factors_us = {
+    # dict for conversion factors of the US customary measurement system
+    conv_facts_us = {
         "in": 1,
         "ft": 1/12,
         "yd": 1/36,
         "mi": 1/63360,
     }
 
-    CONVERSION_FACTORS_METER_INCH = 39.37
+    CONVERSION_FACTOR_METER_INCH = 39.37
 
-    #exception to make sure value_in contains an postive int or float number
+    # exception to make sure value_in contains an postive int or float number
     try:
         value_in = float(value_in)
 
@@ -29,54 +29,49 @@ def conv_length (value_in, unit_in, unit_out):
             raise ValueError
 
     except ValueError:
-        print (value_in, "is not a (positive) number.., program exited")
+        print(value_in, "is not a (positive) number.., program exited")
         exit()
 
+    # check if unit_in + unit_out varaibles are existing in conv_facts
+    if unit_in not in conv_facts_m.keys() and\
+            unit_in not in conv_facts_us.keys():
+        print(unit_in, "is no valid (input) unit of measurement")
 
-    # check if the unit_in and unit_out varaibles are existing in the conversion_factors
-    if unit_in not in conversion_factors_metric.keys() and unit_in not in conversion_factors_us.keys():
-        print (unit_in, "is no valid (input) unit of measurement (at least not in this program)")
-
-        if unit_out not in conversion_factors_metric.keys() and unit_out not in conversion_factors_us.keys():
-            print (unit_out, "is no valid  (output) unit of measurement (at least not in this program)")
+        if unit_out not in conv_facts_m.keys()\
+                and unit_out not in conv_facts_us.keys():
+            print(unit_out, "is no valid  (output) unit of measurement")
 
         exit()
 
-    if unit_out not in conversion_factors_metric.keys() and unit_out not in conversion_factors_us.keys():
-        print (unit_out, "is no valid (output) unit of measurement (at least not in this program)")
+    if unit_out not in conv_facts_m.keys() and\
+            unit_out not in conv_facts_us.keys():
+        print(unit_out, "is no valid (output) unit of measurement")
         exit()
 
+    # calculate in the metric system
+    if unit_in in conv_facts_m.keys() and\
+            unit_out in conv_facts_m.keys():
+        result = value_in * (conv_facts_m[unit_out] / conv_facts_m[unit_in])
 
-    #calculate in the metric system
-    if unit_in in conversion_factors_metric.keys() and unit_out in conversion_factors_metric.keys():
-        result = value_in * (conversion_factors_metric[unit_out] / conversion_factors_metric[unit_in])
+    # calculate in the US customary measurement system
+    if unit_in in conv_facts_us.keys() and\
+            unit_out in conv_facts_us.keys():
+        result = value_in * (conv_facts_us[unit_out] / conv_facts_us[unit_in])
 
-    #calculate in the US customary measurement system
-    if unit_in in conversion_factors_us.keys() and unit_out in conversion_factors_us.keys():
-        result = value_in * (conversion_factors_us[unit_out] / conversion_factors_us[unit_in])
+    # calculate from the metric system into the US customary measurement system
+    if unit_in in conv_facts_m.keys() and\
+            unit_out in conv_facts_us.keys():
+        tmp_m = value_in * (conv_facts_m["m"] / conv_facts_m[unit_in])
+        tmp_in = tmp_m * CONVERSION_FACTOR_METER_INCH
+        result = tmp_in * (conv_facts_us[unit_out] / conv_facts_us["in"])
 
-    #calculate from the metric system into the US customary measurement system
-    if unit_in in conversion_factors_metric.keys() and unit_out in conversion_factors_us.keys():
-        result_metric = value_in * (conversion_factors_metric["m"] / conversion_factors_metric[unit_in])
-        result_in_inch = result_metric * CONVERSION_FACTORS_METER_INCH
-        result = result_in_inch * (conversion_factors_us[unit_out] / conversion_factors_us["in"])
+    # calculate from the US customary measurement system into the metric system
+    if unit_in in conv_facts_us.keys() and\
+            unit_out in conv_facts_m.keys():
+        tmp_us = value_in * (conv_facts_us["in"] / conv_facts_us[unit_in])
+        tmp_m = tmp_us / CONVERSION_FACTOR_METER_INCH
+        result = tmp_m * (conv_facts_m[unit_out] / conv_facts_m["m"])
 
-    #calculate from the US customary measurement system into the metric system
-    if unit_in in conversion_factors_us.keys() and unit_out in conversion_factors_metric.keys():
-        result_us = value_in * (conversion_factors_us["in"] / conversion_factors_us[unit_in])
-        result_in_meter = result_us / CONVERSION_FACTORS_METER_INCH
-        result = result_in_meter * (conversion_factors_metric[unit_out] / conversion_factors_metric["m"])
-
-    print("converted:", value_in,unit_in,"to", result,unit_out)
+    print("converted:", value_in, unit_in, "to", result, unit_out)
 
     return (result)
-
-def main():
-    value_in = 6
-    unit_in = "km"
-    unit_out = "m"
-    conv_length(value_in, unit_in, unit_out)
-
-
-if  __name__ =='__main__':
-    main()
